@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "ms-vscode.cpptools",
+        "azemoh.one-monokai",
+        "wayou.vscode-todo-highlight",
+        "slevesque.shader"
+    ]
+}
