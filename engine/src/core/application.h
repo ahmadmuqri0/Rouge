@@ -2,6 +2,8 @@
 
 #include "defines.h"
 
+struct game;
+
 // Application configuration.
 typedef struct application_config {
     // Window starting position x axis, if applicable.
@@ -21,6 +23,6 @@ typedef struct application_config {
 } application_config;
 
 
-RAPI b8 application_create(application_config* config);
+RAPI b8 application_create(struct game* game_inst);
 
 RAPI b8 application_run();
