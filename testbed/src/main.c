@@ -2,23 +2,18 @@
 #include <core/asserts.h>
 
 // TODO: Test
-#include <platform/platform.h>
+#include <core/application.h>
 
 int main(void) {
-    RFATAL("A test message: %f", 3.14f);
-    RERROR("A test message: %f", 3.14f);
-    RWARN("A test message: %f", 3.14f);
-    RINFO("A test message: %f", 3.14f);
-    RDEBUG("A test message: %f", 3.14f);
-    RTRACE("A test message: %f", 3.14f);
+    application_config config;
+    config.start_pos_x = 100;
+    config.start_pos_y = 100;
+    config.start_width = 1280;
+    config.start_height = 720;
+    config.name = "Rouge Engine Testbed";
 
-    platform_state state;
-    if (platform_startup(&state, "Rouge Engine Testbed", 100, 100, 1280, 720)) {
-        while (TRUE) {
-            platform_pump_messages(&state);
-        }
-    }
-    platform_shutdown(&state);
+    application_create(&config);
+    application_run();
 
     return 0;
 }
