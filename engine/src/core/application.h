@@ -25,4 +25,4 @@ typedef struct application_config {
 
 RAPI b8 application_create(struct game* game_inst);
 
-RAPI b8 application_run();
+RAPI b8 application_run(void);

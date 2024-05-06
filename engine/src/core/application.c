@@ -68,7 +68,7 @@ b8 application_create(game* game_inst) {
     return TRUE;
 }
 
-b8 application_run() {
+b8 application_run(void) {
     RINFO(get_memory_usage_str());
 
     while (app_state.is_running) {
