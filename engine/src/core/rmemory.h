@@ -6,7 +6,7 @@ typedef enum memory_tag {
     // For temporary use. should be assigned one of the below or have a new tag created.
     MEMORY_TAG_UKNOWN,
     MEMORY_TAG_ARRAY,
-    MEMORY_TAG_DARRAY,
+    MEMORY_TAG_LIST,
     MEMORY_TAG_DICT,
     MEMORY_TAG_RING_QUEUE,
     MEMORY_TAG_BST,
