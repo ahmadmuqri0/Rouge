@@ -50,24 +50,26 @@ void input_process_key(keys key, b8 pressed) {
     if (state.keyboard_current.keys[key] != pressed) {
         // Update internal state.
         state.keyboard_current.keys[key] = pressed;
+        
+        // Fire off an event for immediate processing.
+        event_context context;
+        context.data.u16[0] = key;
+        event_fire(pressed ? EVENT_CODE_KEY_PRESSED : EVENT_CODE_KEY_RELEASED, 0, context);
     }
 
-    // Fire off an event for immediate processing.
-    event_context context;
-    context.data.u16[0] = key;
-    event_fire(pressed ? EVENT_CODE_KEY_PRESSED : EVENT_CODE_KEY_RELEASED, 0, context);
 }
 
 void input_process_button(buttons button, b8 pressed) {
     // If the state changed, fire an event.
     if (state.mouse_current.buttons[button] != pressed) {
         state.mouse_current.buttons[button] = pressed;
+    
+        // Fire off the event.
+        event_context context;
+        context.data.u16[0] = button;
+        event_fire(pressed ? EVENT_CODE_BUTTON_PRESSED : EVENT_CODE_BUTTON_RELEASED, 0, context);
     }
 
-    // Fire off athe event.
-    event_context context;
-    context.data.u16[0] = button;
-    event_fire(pressed ? EVENT_CODE_BUTTON_PRESSED : EVENT_CODE_BUTTON_RELEASED, 0, context);
 }
 
 void input_process_mouse_move(i16 x, i16 y) {
