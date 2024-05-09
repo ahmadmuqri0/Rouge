@@ -17,7 +17,7 @@ typedef struct event_code_entry {
 // State structure
 typedef struct event_system_state {
     // Lookup table for event codes.
-    event_code_entry registered[MAX_EVENT_CODE];
+    event_code_entry registered[MAX_MESSAGE_CODES];
 } event_system_state;
 
 /**
