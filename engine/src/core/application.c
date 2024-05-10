@@ -71,6 +71,11 @@ b8 application_create(game* game_inst) {
         return FALSE;
     }
 
+    if (!renderer_initialize(game_inst->app_config.name, &app_state.platform)) {
+        RFATAL("Failed to initialize renderer. Aborting application");
+        return FALSE;
+    }
+
     // Initialize the game.
     if (!app_state.game_inst->initialize(app_state.game_inst)) {
         RFATAL("Game failed to initialize.");
@@ -162,6 +167,8 @@ b8 application_run(void) {
     event_unregister(EVENT_CODE_KEY_RELEASED, 0, applicatoin_on_key);
     event_shutdown();
     input_shutdown();
+
+    renderer_shutdown();
 
     platform_shutdown(&app_state.platform);
 
