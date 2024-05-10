@@ -10,6 +10,6 @@ u64 string_length(const char* str) {
 char* string_duplicate(const char* str) {
     u64 length = string_length(str);
     char* copy = ralloc(length + 1, MEMORY_TAG_STRING);
-    rmemcpy(copy, str, length + 1);
+    rmemcpy(copy, (void*)str, length + 1);
     return copy;
 }
