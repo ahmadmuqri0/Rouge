@@ -24,13 +24,13 @@ typedef struct input_state {
 static b8 initialized = FALSE;
 static input_state state = {};
 
-void input_initialize() {
+void input_initialize(void) {
     rmemzero(&state, sizeof(input_state));
     initialized = TRUE;
     RINFO("Input subsystem initialized.");
 }
 
-void input_shutdown() {
+void input_shutdown(void) {
     // TODO: Add shutdown routines when needed.
     initialized = FALSE;
 }
