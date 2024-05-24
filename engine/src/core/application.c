@@ -1,7 +1,7 @@
 #include "application.h"
 #include "game_types.h"
 
-#include "logger.h"
+#include "core/logger.h"
 
 #include "platform/platform.h"
 #include "core/rmemory.h"

@@ -1,4 +1,4 @@
-#include "core/rstring.h"
+#include "rstring.h"
 #include "core/rmemory.h"
 
 #include <string.h>
