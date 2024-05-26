@@ -2,6 +2,7 @@
 
 #include "vulkan_platform.h"
 #include "vulkan_types.inl"
+#include "vulkan_device.h"
 
 #include "core/logger.h"
 #include "core/rstring.h"
@@ -118,8 +119,22 @@ b8 vulkan_renderer_backend_initialize(renderer_backend* backend, const char* app
     RASSERT_MSG(func, "Failed to create debug messenger!");
     VK_CHECK(func(context.instance, &debug_create_info, context.allocator, &context.debug_messenger));
     RDEBUG("Vulkan debugger created.");
-#endif    
+#endif
 
+    // Surface
+    RDEBUG("Creating Vulkan Surface...");
+    if (!platform_create_vulkan_surface(plat_state, &context)) {
+        RERROR("Failed to create platform surface!");
+        return FALSE;
+    }
+    RDEBUG("Vulkan surface created.");
+
+    // Device creation
+    if (!vulkan_device_create(&context)) {
+        RERROR("Failed to create device!");
+        return FALSE;
+    }
+    
     RINFO("Vulkan renderer initialized successfully.");
     return TRUE;
 }
