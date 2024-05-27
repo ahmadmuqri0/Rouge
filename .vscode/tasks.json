@@ -42,7 +42,7 @@
                 "command": "${workspaceFolder}\\build-all.bat",
             },
             "linux": {
-                "command": "${workspaceFolder}\\build-all.sh",
+                "command": "${workspaceFolder}/build-all.sh",
             },
             "options": {
                 "cwd": "${workspaceFolder}"
